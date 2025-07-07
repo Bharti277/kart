@@ -20,6 +20,13 @@ const Counter = () => {
       payload: bgColor === "red" ? "blue" : "red",
     });
   };
+
+  // const handleBackgroundChange = (color) => {
+  //   dispatch({
+  //     type: "CHANGE_BACKGROUND_COLOR",
+  //     payload: color,
+  //   });
+  // };
   return (
     <div style={{ backgroundColor: bgColor, padding: "20px" }}>
       <h1>{count}</h1>
@@ -27,6 +34,7 @@ const Counter = () => {
         <button onClick={handleDecrement}>Decrement</button>
         <button onClick={handleIncrement}>Increment</button>
         <button onClick={handleBackgroundChange}>Color</button>
+        {/* <button onClick={() => handleBackgroundChange("green")}>Color</button> */}
       </div>
     </div>
   );
