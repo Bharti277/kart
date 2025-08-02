@@ -20,6 +20,7 @@ const Counter = () => {
       payload: bgColor === "red" ? "blue" : "red",
     });
   };
+  // Multiple handles for bg change
 
   // const handleBackgroundChange = (color) => {
   //   dispatch({
