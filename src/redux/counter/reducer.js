@@ -1,6 +1,5 @@
 const initialState = {
   number: 0,
-  arr: [],
   backgroundColor: "red",
 };
 
