@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Counter from "./components/Counter";
+import Home from "./components/Home";
 import Signup from "./components/signup/Signup";
 import Login from "./components/Login/Login";
 import { useSelector } from "react-redux";
@@ -15,7 +15,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Counter />} />
+          <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
         </Routes>
