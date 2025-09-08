@@ -4,6 +4,7 @@ import Counter from "./components/Counter";
 import Signup from "./components/signup/Signup";
 import Login from "./components/Login/Login";
 import { useSelector } from "react-redux";
+import Navbar from "./components/navbar/Navbar";
 
 function App() {
   const { user, isAuthenticated } = useSelector((state) => state.auth);
@@ -12,6 +13,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Counter />} />
           <Route path="/signup" element={<Signup />} />
