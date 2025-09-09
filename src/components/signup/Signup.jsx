@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Eye, EyeOff, Mail, Lock, User, ArrowRight } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { AuthService } from "../../redux/auth/authService";
-import { signup } from "../../redux/auth/authSlice";
+import { signup } from "../../redux/slices/authSlice";
 
 export default function Signup() {
   const [formData, setFormData] = useState({

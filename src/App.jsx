@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Counter from "./components/Counter";
 import Signup from "./components/signup/Signup";
 import Login from "./components/Login/Login";
 import { useSelector } from "react-redux";
 import Navbar from "./components/navbar/Navbar";
+import Home from "./components/Home";
 
 function App() {
   const { user, isAuthenticated } = useSelector((state) => state.auth);
@@ -15,7 +15,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Counter />} />
+          <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
         </Routes>

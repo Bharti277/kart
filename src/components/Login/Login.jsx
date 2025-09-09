@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Eye, EyeOff, Mail, Lock, User, ArrowRight } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { AuthService } from "../../redux/auth/authService";
-import { login as loginAction } from "../../redux/auth/authSlice";
+import { login as loginAction } from "../../redux/slices/authSlice";
 
 const Login = () => {
   const [formData, setFormData] = useState({
