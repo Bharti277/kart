@@ -5,11 +5,19 @@ import {
   increment,
   incrementByAmount,
 } from "../redux/slices/counterSlice";
-import { addTodo, fetchTodos, removeTodo } from "../redux/slices/todoSlice";
+import {
+  addTodo,
+  editTodo,
+  fetchTodos,
+  removeTodo,
+} from "../redux/slices/todoSlice";
 
 const Home = () => {
   const state = useSelector((state) => state.todo);
   const [task, setTask] = useState("");
+  const [editingId, setEditingId] = useState(null);
+  const [editedTitle, setEditedTitle] = useState("");
+
   console.log(state, "countttt");
   const dispatch = useDispatch();
 
@@ -18,6 +26,19 @@ const Home = () => {
     console.log(task, "taskkk");
     dispatch(addTodo({ id: Date.now(), title: task, completed: false }));
     setTask("");
+  };
+
+  const handleEditChange = (todo) => {
+    setEditingId(todo.id);
+    setEditedTitle(todo.title);
+    console.log(todo, "todo");
+  };
+
+  const handleSaveEdit = (id) => {
+    if (editedTitle.trim() === "") return;
+    dispatch(editTodo({ id, title: editedTitle }));
+    setEditingId(null);
+    setEditedTitle("");
   };
 
   if (state.isLoading) {
@@ -43,6 +64,7 @@ const Home = () => {
         <input
           className="border-2 border-black px-4 py-2 rounded-lg"
           type="text"
+          placeholder="Enter Task"
           value={task}
           onChange={(e) => setTask(e.target.value)}
         />
@@ -50,13 +72,46 @@ const Home = () => {
       <div>
         {state.todos.map((todo) => (
           <li key={todo.id}>
-            <span>{todo.title}</span>
-            <button
-              onClick={() => dispatch(removeTodo(todo.id))}
-              className="px-8 py-2 bg-red-400"
-            >
-              X
-            </button>
+            <>
+              {editingId === todo.id ? (
+                <>
+                  <input
+                    type="text"
+                    value={editedTitle}
+                    className="border-2 border-black px-4 py-2 rounded-lg"
+                    onChange={(e) => setEditedTitle(e.target.value)}
+                  />
+                  <button
+                    onClick={() => handleSaveEdit(todo.id)}
+                    className="bg-gray-500 py-2 px-8 cursor-pointer hover:bg-gray-900 text-white mx-2"
+                  >
+                    Save
+                  </button>
+                  <button
+                    onClick={() => dispatch(removeTodo(todo.id))}
+                    className="px-8 py-2 bg-red-400"
+                  >
+                    X
+                  </button>
+                </>
+              ) : (
+                <>
+                  <span>{todo.title}</span>
+                  <button
+                    onClick={() => handleEditChange(todo)}
+                    className="bg-gray-500 py-2 px-8 cursor-pointer hover:bg-gray-900 text-white mx-2"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => dispatch(removeTodo(todo.id))}
+                    className="px-8 py-2 bg-red-400"
+                  >
+                    X
+                  </button>
+                </>
+              )}
+            </>
           </li>
         ))}
       </div>
