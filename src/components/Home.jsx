@@ -31,7 +31,6 @@ const Home = () => {
   const handleEditChange = (todo) => {
     setEditingId(todo.id);
     setEditedTitle(todo.title);
-    console.log(todo, "todo");
   };
 
   const handleSaveEdit = (id) => {
@@ -46,7 +45,7 @@ const Home = () => {
   }
 
   return (
-    <div className="w-fit h-fit m-auto mt-20 gap-5">
+    <div className="w-fit h-fit m-auto mt-20 gap-5 grid">
       <button
         className="px-4 py-2 text-white bg-blue-600 rounded-lg cursor-pointer"
         onClick={() => dispatch(fetchTodos())}
@@ -55,7 +54,7 @@ const Home = () => {
       </button>
       <h1 className="text-2xl font-bold">Todo List</h1>
       <button
-        className="px-4 py-2 text-black bg-blue-900 cursor-pointer"
+        className="px-4 py-2 mb-2 text-black bg-blue-900 cursor-pointer"
         onClick={addNewTodo}
       >
         Add New Todo
