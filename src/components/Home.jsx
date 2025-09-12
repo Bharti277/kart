@@ -54,7 +54,7 @@ const Home = () => {
       </button>
       <h1 className="text-2xl font-bold">Todo List</h1>
       <button
-        className="px-4 py-2 mb-2 text-black bg-blue-900 cursor-pointer"
+        className="px-4 py-2 mb-2 text-white bg-blue-900 cursor-pointer"
         onClick={addNewTodo}
       >
         Add New Todo
@@ -70,45 +70,41 @@ const Home = () => {
       </div>
       <div>
         {state.todos.map((todo) => (
-          <li key={todo.id}>
+          <li key={todo.id} className="list-none my-2">
             <>
               {editingId === todo.id ? (
-                <>
+                <div className="flex items-center">
                   <input
                     type="text"
                     value={editedTitle}
-                    className="border-2 border-black px-4 py-2 rounded-lg"
+                    className="border-2 border-black px-4 py-2 rounded-lg w-full"
                     onChange={(e) => setEditedTitle(e.target.value)}
                   />
                   <button
                     onClick={() => handleSaveEdit(todo.id)}
-                    className="bg-gray-500 py-2 px-8 cursor-pointer hover:bg-gray-900 text-white mx-2"
+                    className="bg-gray-500 py-2 px-8 cursor-pointer hover:bg-gray-900 text-white mx-2 float-right"
                   >
                     Save
                   </button>
-                  <button
-                    onClick={() => dispatch(removeTodo(todo.id))}
-                    className="px-8 py-2 bg-red-400"
-                  >
-                    X
-                  </button>
-                </>
+                </div>
               ) : (
-                <>
+                <div className="flex items-center ">
                   <span>{todo.title}</span>
-                  <button
-                    onClick={() => handleEditChange(todo)}
-                    className="bg-gray-500 py-2 px-8 cursor-pointer hover:bg-gray-900 text-white mx-2"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => dispatch(removeTodo(todo.id))}
-                    className="px-8 py-2 bg-red-400"
-                  >
-                    X
-                  </button>
-                </>
+                  <div className="ml-auto ">
+                    <button
+                      onClick={() => handleEditChange(todo)}
+                      className="bg-gray-500 py-2 px-8 cursor-pointer hover:bg-gray-900 text-white mx-2"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => dispatch(removeTodo(todo.id))}
+                      className="px-8 py-2 bg-red-400"
+                    >
+                      X
+                    </button>
+                  </div>
+                </div>
               )}
             </>
           </li>
