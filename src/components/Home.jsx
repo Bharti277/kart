@@ -23,7 +23,6 @@ const Home = () => {
 
   const addNewTodo = () => {
     if (task.trim() == "") return;
-    console.log(task, "taskkk");
     dispatch(addTodo({ id: Date.now(), title: task, completed: false }));
     setTask("");
   };
