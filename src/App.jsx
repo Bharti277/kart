@@ -5,6 +5,7 @@ import Login from "./components/Login/Login";
 import { useSelector } from "react-redux";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./components/Home";
+import Contact from "./components/Contact";
 
 function App() {
   const { user, isAuthenticated } = useSelector((state) => state.auth);
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </BrowserRouter>
     </>

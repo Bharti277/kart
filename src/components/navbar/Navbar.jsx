@@ -13,7 +13,7 @@ const Navbar = () => {
         <ul className="flex space-x-6">
           <li>Home</li>
           <li>About</li>
-          <li>Contact</li>
+          <Link to="/contact">Contact</Link>
         </ul>
         <div>
           <ul className="flex space-x-6">
