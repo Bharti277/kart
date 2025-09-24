@@ -5,6 +5,16 @@ const Contact = () => {
     name: "",
     age: "",
   });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  console.log(formData, "formdata");
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-100 to-purple-200">
       <form className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md grid gap-6">
@@ -13,13 +23,17 @@ const Contact = () => {
         </h2>
         <input
           type="text"
+          name="name"
           value={formData.name}
+          onChange={handleChange}
           className="border-2 border-purple-300 rounded-xl p-4 focus:outline-none focus:border-purple-500 transition"
           placeholder="Enter your name"
         />
         <input
           type="text"
+          name="age"
           value={formData.age}
+          onChange={handleChange}
           className="border-2 border-purple-300 rounded-xl p-4 focus:outline-none focus:border-purple-500 transition"
           placeholder="Enter your age"
         />
