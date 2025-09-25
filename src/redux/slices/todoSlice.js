@@ -11,6 +11,7 @@ export const todoSlice = createSlice({
     todos: [],
     isLoading: false,
     isError: false,
+    contacts: [],
   },
   extraReducers: (builder) => {
     builder.addCase(fetchTodos.pending, (state, action) => {
@@ -42,6 +43,9 @@ export const todoSlice = createSlice({
         todo.title = title;
       }
     },
+    addContact: (state, action) => {
+      state.contacts.push(action.payload);
+    },
     default: (state, action) => {
       return state;
     },
@@ -49,4 +53,4 @@ export const todoSlice = createSlice({
 });
 
 export default todoSlice.reducer;
-export const { removeTodo, addTodo, editTodo } = todoSlice.actions;
+export const { removeTodo, addTodo, editTodo, addContact } = todoSlice.actions;
