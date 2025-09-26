@@ -1,16 +1,16 @@
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import { addContact } from "../redux/slices/todoSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const Contact = () => {
   const contacts = useSelector((state) => state.todo.contacts);
+  const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
     name: "",
     age: "",
   });
 
-  const dispatch = useDispatch();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -19,12 +19,10 @@ const Contact = () => {
     }));
   };
 
-  console.log(formData, "formdata");
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formData.name && formData.age) {
-      alert(`Thank you ${formData.name} for contacting us!`);
+      console.log(`Thank you ${formData.name} for contacting us!`);
     } else {
       alert("Please fill in all fields.");
     }
