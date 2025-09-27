@@ -22,7 +22,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formData.name && formData.age) {
-      console.log(`Thank you ${formData.name} for contacting us!`);
+      console.log(`Thank you ${formData.name} for contacting us`);
     } else {
       alert("Please fill in all fields.");
     }
