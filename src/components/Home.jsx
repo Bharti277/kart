@@ -102,7 +102,7 @@ const Home = () => {
                     </button>
                     <button
                       onClick={() => dispatch(removeTodo(todo.id))}
-                      className="px-8 py-2 bg-red-400"
+                      className="px-8 py-2 bg-red-400 cursor-pointer hover:bg-red-600 text-white"
                     >
                       X
                     </button>
