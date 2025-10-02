@@ -25,7 +25,6 @@ const Login = () => {
     const user = await AuthService.login(formData);
     dispatch(loginAction(user));
     console.log("Form submitted:", formData);
-    // Handle form submission logic here
   };
 
   return (
