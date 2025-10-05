@@ -14,6 +14,9 @@ import {
 
 const Home = () => {
   const state = useSelector((state) => state.todo);
+  const counter = useSelector((state) => state.counter);
+  console.log(counter, "counter");
+  
   const [task, setTask] = useState("");
   const [editingId, setEditingId] = useState(null);
   const [editedTitle, setEditedTitle] = useState("");
