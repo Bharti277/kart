@@ -9,7 +9,7 @@ import Contact from "./components/Contact";
 
 function App() {
   const { user, isAuthenticated } = useSelector((state) => state.auth);
-  console.log(user, isAuthenticated, "user");
+  console.log(user, isAuthenticated, "user!");
 
   return (
     <>
