@@ -35,8 +35,6 @@ export const todoSlice = createSlice({
       state.todos = state.todos.filter((todo) => todo.id !== action.payload);
     },
     editTodo: (state, action) => {
-      console.log(action.payload, "action check");
-
       const { id, title } = action.payload;
       const todo = state.todos.find((todo) => todo.id === id);
       if (todo) {
