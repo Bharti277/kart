@@ -19,7 +19,6 @@ export const todoSlice = createSlice({
     });
     builder.addCase(fetchTodos.rejected, (state, action) => {
       console.log(action.payload, "Error");
-
       state.isLoading = false;
     });
     builder.addCase(fetchTodos.fulfilled, (state, action) => {
