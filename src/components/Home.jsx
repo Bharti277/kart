@@ -15,7 +15,8 @@ import {
 const Home = () => {
   const state = useSelector((state) => state.todo);
   const counter = useSelector((state) => state.counter);
-  
+  console.log(counter, "counter");
+
   const [task, setTask] = useState("");
   const [editingId, setEditingId] = useState(null);
   const [editedTitle, setEditedTitle] = useState("");
@@ -40,7 +41,7 @@ const Home = () => {
     setEditingId(null);
     setEditedTitle("");
   };
-    // Loader added
+  // Loader added
   if (state.isLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
