@@ -41,7 +41,8 @@ const Home = () => {
     setEditingId(null);
     setEditedTitle("");
   };
-  // Loader added
+
+  // Loader
   if (state.isLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
