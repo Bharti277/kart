@@ -33,7 +33,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 to-purple-200 p-8">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-8">
-        {/* Contact Form */}
+        {/* Form */}
         <form
           onSubmit={handleSubmit}
           className="bg-white shadow-xl rounded-2xl p-8 flex-1 transform transition duration-500 hover:scale-[1.02]"
